@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pharmacy/Constants/constants.dart';
 import 'package:pharmacy/GlobalWidgets/SnackBar/snack-bar.dart';
+import 'package:pharmacy/Presentation/profile.screen/widgets/main.user.profile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 import 'package:http/http.dart' as http;
@@ -118,7 +119,7 @@ class _MainOrdersPageState extends State<MainOrdersPage> {
           print('Error during checkout: $error');
         } finally {
           if (response.statusCode == 200) {
-            print('ITEMS IN CART: ${response}');
+            print('ITEMS IN CART: ${jsonDecode(response)}');
           } else {
             print('Unexpected response format');
           }
@@ -140,6 +141,7 @@ class _MainOrdersPageState extends State<MainOrdersPage> {
           final Map<String, dynamic> jsonResponseBody = jsonDecode(response1.body);
           preferences.remove('cart');
           setState(() {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainUserProfile()));
             getCart();
             _btnCircularProgress = false;
             MySnackBar().mySnackBar(context, 'Order placed successfully!', const Color(0xFF13CA87), CupertinoIcons.check_mark);

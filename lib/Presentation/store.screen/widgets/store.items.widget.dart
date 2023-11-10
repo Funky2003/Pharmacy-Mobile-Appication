@@ -16,14 +16,14 @@ class StoreWidget extends StatefulWidget {
 
 class _StoreWidgetState extends State<StoreWidget> {
   // Let's create a search function to filter the hostels based on the search input...
-  TextEditingController searchController = TextEditingController();
+  // TextEditingController searchController = TextEditingController();
   // List<MoreProductsWidget> filteredHostels (String search){
-  //   return .where((hostel) {
-  //     final name = hostel.hostelName.toLowerCase();
-  //     final location = hostel.hostelLocation.toLowerCase();
-  //     final address = hostel.hostelAddress.toLowerCase();
-  //     return name.contains(search) || location.contains(search) || address.contains(search);
-  //   }).toList();
+  //  return .where((hostel) {
+  //   final name = hostel.hostelName.toLowerCase();
+  //   final location = hostel.hostelLocation.toLowerCase();
+  //   final address = hostel.hostelAddress.toLowerCase();
+  //   return name.contains(search) || location.contains(search) || address.contains(search);
+  // }).toList();
   // }
 
   Future<List<dynamic>> getAllProducts() async {

@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmacy/Presentation/homepage.screen/widgets/bottom.navigation.widget.dart';
-import '../../Presentation/signup-login.screen/signup/main.signup.dart';
 
 class AlertArgs {
   String head;

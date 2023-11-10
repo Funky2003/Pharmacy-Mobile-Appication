@@ -21,7 +21,8 @@ class _SettingOptionsState extends State<ApprovalWidget> {
       print('THE FOLLOWING ERROR OCCURRED: $error');
     } finally {
       if (response.body != null) {
-        print('ITEMS IN CART: ${response.body}');
+        final Map<String, dynamic> jsonResponseBody = jsonDecode(response.body);
+        print('ITEMS IN CART: ${jsonResponseBody}');
       } else {
         print('Unexpected response format');
       }

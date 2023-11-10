@@ -14,9 +14,9 @@ class MySnackBar {
             )
           ],
         ),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
         behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 1),
       ),
     );
   }
