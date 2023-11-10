@@ -12,7 +12,7 @@ class ApprovalWidget extends StatefulWidget {
 }
 
 class _SettingOptionsState extends State<ApprovalWidget> {
-  Future<List<dynamic>> getAllOrders() async {
+  Future getAllOrders() async {
     var response;
     try {
       response = await http.get(Uri.parse(GETORDERS),
@@ -21,11 +21,9 @@ class _SettingOptionsState extends State<ApprovalWidget> {
       print('THE FOLLOWING ERROR OCCURRED: $error');
     } finally {
       if (response.body != null) {
-        List<dynamic> decodedJsonBody = jsonDecode(response.body);
-        return decodedJsonBody;
+        print('ITEMS IN CART: ${response.body}');
       } else {
-        print('NO DATA FOUND IN THE PRODUCTS TABLE');
-        return [];
+        print('Unexpected response format');
       }
     }
   }

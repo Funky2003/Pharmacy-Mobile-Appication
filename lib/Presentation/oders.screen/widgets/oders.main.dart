@@ -104,25 +104,26 @@ class _MainOrdersPageState extends State<MainOrdersPage> {
       var response;
       for (var item in cart) {
         var itemData = jsonDecode(item);
-
         var requestBody = {
           "productId": itemData['id'],
           "quantity": itemData['quantity'],
         };
-
         try {
           response = await http.post(
-            Uri.parse(ORDER),
+            Uri.parse(CART),
             headers: {"Content-Type": "application/json"},
             body: jsonEncode(requestBody),
           );
         } catch (error) {
           print('Error during checkout: $error');
         } finally {
-          print('THE IMAGE PRESCRIPTION: ${response.body}');
+          if (response.statusCode == 200) {
+            print('ITEMS IN CART: ${response}');
+          } else {
+            print('Unexpected response format');
+          }
         }
       }
-
       if (response.statusCode == 201){
         var response1;
         var requestBody = {

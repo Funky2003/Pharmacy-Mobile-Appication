@@ -5,8 +5,8 @@ const url1 = 'https://pharma-k0q8.onrender.com/api/v1/';
 
 
 const SIGNUP = '${url}signup';
-const ORDER = '${url1}cart/add';
+const CART = '${url1}cart/add';
 const CHECKOUT = '${url1}checkout';
 const LOGIN = '${url}signin';
 const GETPRODUCTS = 'https://pharma-k0q8.onrender.com/api/v1/product';
-const GETORDERS = 'https://pharma-k0q8.onrender.com/api/v1/orders';
+const GETORDERS = 'https://pharma-k0q8.onrender.com/api/v1/myorders';
