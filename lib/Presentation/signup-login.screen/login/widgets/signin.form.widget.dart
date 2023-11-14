@@ -40,6 +40,10 @@ class _SignInFormWidgetState extends State<SignInFormWidget> {
           headers: {"Content-Type": "application/json"},
           body: jsonEncode(requestBody)
       );
+
+      if (response.body != null && response.statusCode == 200) {
+        print('ERROR CONNECTING TO SERVER: ${jsonDecode(response.body.toString())}');
+      }
     }
     catch (error){
       print('ERROR CONNECTING TO SERVER: $error');

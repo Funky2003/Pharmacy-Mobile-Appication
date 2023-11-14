@@ -30,12 +30,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
     }
     finally{
       if (response.body != null && response.statusCode == 200){
-        List<dynamic> decodedJsonBody = jsonDecode(response.body);
-        return decodedJsonBody;
+        Map<String, dynamic> decodedJsonBody = jsonDecode(response.body.toString());
+
+        if (decodedJsonBody.containsKey('products')) {
+          List<dynamic> products = decodedJsonBody['products'];
+          return products;
+        }
+
       } else {
         print('NO DATA FOUND IN THE PRODUCTS TABLE');
-        return [];
       }
+      return [];
     }
   }
 

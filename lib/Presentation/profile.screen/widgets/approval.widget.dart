@@ -13,25 +13,27 @@ class ApprovalWidget extends StatefulWidget {
 
 class _SettingOptionsState extends State<ApprovalWidget> {
   Future getAllOrders() async {
-    var response;
     try {
-      response = await http.get(Uri.parse(GETORDERS),
-          headers: {"Content-Type": "application/json"});
-    } catch (error) {
-      print('THE FOLLOWING ERROR OCCURRED: $error');
-    } finally {
-      if (response.body != null) {
-        final Map<String, dynamic> jsonResponseBody = jsonDecode(response.body);
-        print('ITEMS IN CART: ${jsonResponseBody}');
+      var response = await http.get(Uri.parse(GETORDERS),
+          headers: {"Content-Type": "application/json"}
+      );
+
+      if (response.statusCode == 200) {
+        print('ITEMS IN CART: ${jsonDecode(response.body.toString())}');
       } else {
         print('Unexpected response format');
       }
+
+    } catch (error) {
+      print('THE FOLLOWING ERROR OCCURRED: $error');
+    } finally {
+
     }
   }
 
   @override
   void initState() {
-    // TODO: implement initState
+    super.initState();
     getAllOrders();
   }
 

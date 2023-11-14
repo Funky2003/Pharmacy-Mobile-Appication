@@ -31,14 +31,18 @@ class _MoreProductsWidgetState extends State<MoreProductsWidget> {
           headers: {"Content-Type": "application/json"});
     } catch (error) {
       print('THE FOLLOWING ERROR OCCURRED: $error');
-    } finally {
-      if (response.body != null && response.statusCode == 200) {
-        List<dynamic> decodedJsonBody = jsonDecode(response.body);
-        return decodedJsonBody;
+    } finally{
+      if (response.body != null && response.statusCode == 200){
+        Map<String, dynamic> decodedJsonBody = jsonDecode(response.body.toString());
+
+        if (decodedJsonBody.containsKey('products')) {
+          List<dynamic> products = decodedJsonBody['products'];
+          return products;
+        }
       } else {
         print('NO DATA FOUND IN THE PRODUCTS TABLE');
-        return [];
       }
+      return [];
     }
   }
 
