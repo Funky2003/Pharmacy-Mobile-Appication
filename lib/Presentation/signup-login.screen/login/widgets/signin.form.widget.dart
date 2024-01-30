@@ -14,7 +14,6 @@ class SignInFormWidget extends StatefulWidget {
   @override
   State<SignInFormWidget> createState() => _SignInFormWidgetState();
 }
-
 class _SignInFormWidgetState extends State<SignInFormWidget> {
   // Let's declare some few variables...
   late bool _obscureText,

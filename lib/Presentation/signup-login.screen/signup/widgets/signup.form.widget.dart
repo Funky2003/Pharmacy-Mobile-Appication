@@ -132,7 +132,6 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
     _signupBtnCircularProgress = false;
     super.initState();
   }
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -364,7 +363,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                           shape: RoundedRectangleBorder(
                               borderRadius:
                               BorderRadius.circular(25.0)),
-                          backgroundColor: Color(0xFF13CA87)
+                          backgroundColor: const Color(0xFF13CA87)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
